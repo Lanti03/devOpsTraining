@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2023-06-01T14:14:51Z"
+  labels:
+    app: firstappdep
+  name: firstappserv
+  namespace: default
+  resourceVersion: "7431"
+  uid: f964d901-a332-47e3-882c-15ed1c9114af
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.102.6.119
+  clusterIPs:
+  - 10.102.6.119
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 31285
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: firstappdep
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
